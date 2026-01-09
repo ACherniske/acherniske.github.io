@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, FileText } from 'lucide-react';
 import headshot from '../assets/headshot.png';
 import CircuitGenerator from '../utils/pcbBackground';
 
@@ -123,13 +123,22 @@ const Hero = () => {
         </h1>
 
         {/* Contact Button */}
-        <div className="mb-8 text-center">
+        <div className="mb-8 text-center flex items-center justify-center gap-4">
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#EF5B0C] text-[#F5F5F5] rounded-lg hover:bg-[#DC4E08] transition-all duration-300 hover:scale-105"
           >
             <Mail size={20} />
             Contact me
+          </a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-black text-[#F5F5F5] rounded-lg hover:bg-[#EF5B0C] transition-all duration-300 hover:scale-105 shadow-[inset_0_0_0_2px_#EF5B0C]"
+          >
+            <FileText size={20} />
+            Resume
           </a>
         </div>
 
