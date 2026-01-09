@@ -20,10 +20,10 @@ const Footer = () => {
           {/* Center: Social Links */}
           <div className="flex items-center gap-4">
             <a
-              href="https://linkedin.com/in/aidencherniske"
+              href="https://linkedin.com/in/aiden-cherniske"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-[#1F1F1F] hover:border-[#3B82F6] flex items-center justify-center text-[#A3A3A3] hover:text-[#3B82F6] transition-all duration-300"
+              className="w-10 h-10 rounded-full border border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
             >
               <Linkedin size={18} />
             </a>
@@ -31,13 +31,13 @@ const Footer = () => {
               href="https://github.com/ACherniske"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full border border-[#1F1F1F] hover:border-[#3B82F6] flex items-center justify-center text-[#A3A3A3] hover:text-[#3B82F6] transition-all duration-300"
+              className="w-10 h-10 rounded-full border border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
             >
               <Github size={18} />
             </a>
             <a
-              href="mailto:aiden.cherniske@example.com"
-              className="w-10 h-10 rounded-full border border-[#1F1F1F] hover:border-[#3B82F6] flex items-center justify-center text-[#A3A3A3] hover:text-[#3B82F6] transition-all duration-300"
+              href="mailto:apcherniske@gmail.com"
+              className="w-10 h-10 rounded-full border border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
             >
               <Mail size={18} />
             </a>
