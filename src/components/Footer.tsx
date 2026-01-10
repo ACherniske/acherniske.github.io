@@ -1,4 +1,3 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
 import wordmark from '../assets/Wordmark.svg';
 
 const Footer = () => {
