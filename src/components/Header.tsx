@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); // Track if the page is scrolled currently unused
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +20,7 @@ const Header = () => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#0A0A0A]/90 backdrop-blur-sm border-b border-[#1F1F1F]' : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-[#1F1F1F]">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex items-center justify-center">
           <div className="flex items-center gap-8">

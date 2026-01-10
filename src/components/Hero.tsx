@@ -8,21 +8,32 @@ const Hero = () => {
   const [isMouseOver, setIsMouseOver] = useState(false);
 
   useEffect(() => {
-    const svg = document.getElementById('hero-pcb-bg');
-    if (svg) {
-      // Set proper dimensions
-      const rect = svg.getBoundingClientRect();
-      svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
-    }
-    
-    const generator = new CircuitGenerator('hero-pcb-bg', {
-      gridSpacing: 15,
-      lineWidth: 3,
-      lineColor: '#EF5B0C',
-      padColor: '#DC4E08',
-      branchProbability: 0.7,
-    });
-    generator.generate(3);
+    const generatePattern = () => {
+      const svg = document.getElementById('hero-pcb-bg');
+      if (svg) {
+        // Set proper dimensions
+        const rect = svg.getBoundingClientRect();
+        svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
+      }
+      
+      const generator = new CircuitGenerator('hero-pcb-bg', {
+        gridSpacing: 15,
+        lineWidth: 3,
+        lineColor: '#EF5B0C',
+        padColor: '#DC4E08',
+        branchProbability: 0.7,
+      });
+      generator.generate(3);
+    };
+
+    generatePattern();
+
+    const handleResize = () => {
+      generatePattern();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
@@ -55,7 +66,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center bg-[#0A0A0A] relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center bg-[#1a1a1a] relative overflow-hidden"
     >
       {/* SVG Definitions for Mask */}
       <svg width="0" height="0" className="absolute">
@@ -114,7 +125,7 @@ const Hero = () => {
         </div>
 
         {/* Main Title */}
-        <h1 className="text-6xl md:text-8xl font-bold text-[#F5F5F5] mb-8 leading-tight text-center">
+        <h1 className="text-6xl md:text-8xl font-bold text-[#f1f1f1] mb-8 leading-tight text-center">
           DIGITAL HARDWARE
           <br />
           <span className="text-transparent bg-clip-text bg-[#EF5B0C]">
@@ -126,7 +137,7 @@ const Hero = () => {
         <div className="mb-8 text-center flex items-center justify-center gap-4">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#EF5B0C] text-[#F5F5F5] rounded-lg hover:bg-[#DC4E08] transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#EF5B0C] text-[#f1f1f1] rounded-lg hover:bg-[#DC4E08] transition-all duration-300 hover:scale-105"
           >
             <Mail size={20} />
             Contact me
@@ -135,7 +146,7 @@ const Hero = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-black text-[#F5F5F5] rounded-lg hover:bg-[#EF5B0C] transition-all duration-300 hover:scale-105 shadow-[inset_0_0_0_2px_#EF5B0C]"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-[#f1f1f1] rounded-lg hover:bg-[#EF5B0C] transition-all duration-300 hover:scale-105 shadow-[inset_0_0_0_2px_#EF5B0C]"
           >
             <FileText size={20} />
             Resume
