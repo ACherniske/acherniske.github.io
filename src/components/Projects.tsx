@@ -10,7 +10,7 @@ const Projects = () => {
         {/* Section Header */}
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#f1f1f1] mb-4">
-            Featured Projects
+            Selected Projects
           </h2>
           <div className="w-20 h-1 bg-[#EF5B0C]"></div>
           <p className="text-[#A3A3A3] text-lg mt-6">
