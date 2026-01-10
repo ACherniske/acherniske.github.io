@@ -137,6 +137,10 @@ const Hero = () => {
         <div className="mb-8 text-center flex items-center justify-center gap-4">
           <a
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#EF5B0C] text-[#f1f1f1] rounded-lg hover:bg-[#DC4E08] transition-all duration-300 hover:scale-105"
           >
             <Mail size={20} />
@@ -156,7 +160,13 @@ const Hero = () => {
         {/* Social Links */}
         <div className="flex items-center justify-center gap-4">
           <a
-            href="https://linkedin.com/in/aidencherniske"
+            href="mailto:apcherniske@gmail.com"
+            className="w-12 h-12 rounded-full bg-black border-2 border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
+          >
+            <Mail size={20} />
+          </a>
+          <a
+            href="https://linkedin.com/in/aiden-cherniske"
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full bg-black border-2 border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
@@ -170,12 +180,6 @@ const Hero = () => {
             className="w-12 h-12 rounded-full bg-black border-2 border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
           >
             <Github size={20} />
-          </a>
-          <a
-            href="mailto:aiden.cherniske@example.com"
-            className="w-12 h-12 rounded-full bg-black border-2 border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
-          >
-            <Mail size={20} />
           </a>
         </div>
       </div>
