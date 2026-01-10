@@ -7,7 +7,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className="bg-[#0A0A0A] border border-[#1F1F1F] rounded-lg overflow-hidden hover:border-[#EF5B0C] transition-all duration-300 group">
+    <div className="bg-[#0A0A0A] border-2 border-[#1F1F1F] rounded-lg overflow-hidden hover:border-[#EF5B0C] transition-all duration-300 group">
       {/* Image Placeholder */}
       <div className="h-48 bg-linear-to-br from-[#1F1F1F] to-[#0A0A0A] flex items-center justify-center">
         <div className="text-6xl opacity-20">⚡</div>
