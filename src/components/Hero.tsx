@@ -162,7 +162,7 @@ const Hero = () => {
         <div className="flex items-center justify-center gap-4">
           <a
             href="mailto:apcherniske@gmail.com"
-            className="w-12 h-12 rounded-full bg-black border-2 border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
+            className="w-12 h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
           >
             <Mail size={20} />
           </a>
@@ -170,7 +170,7 @@ const Hero = () => {
             href="https://linkedin.com/in/aiden-cherniske"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full bg-black border-2 border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
+            className="w-12 h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
           >
             <Linkedin size={20} />
           </a>
@@ -178,7 +178,7 @@ const Hero = () => {
             href="https://github.com/ACherniske"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full bg-black border-2 border-[#1F1F1F] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
+            className="w-12 h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
           >
             <Github size={20} />
           </a>

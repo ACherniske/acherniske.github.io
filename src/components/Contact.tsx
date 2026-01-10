@@ -2,7 +2,7 @@ import { Mail, Linkedin, Github, MapPin } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 bg-[#0A0A0A]">
+    <section id="contact" className="py-32 bg-[#1a1a1a]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="mb-16 text-center">
@@ -21,9 +21,9 @@ const Contact = () => {
           {/* Email */}
           <a
             href="mailto:apcherniske@gmail.com"
-            className="bg-[#111111] border-2 border-[#1F1F1F] rounded-lg p-8 text-center hover:border-[#EF5B0C] transition-all duration-300 group"
+            className="bg-[#0a0a0a] border-2 border-[#2a2a2a] rounded-lg p-8 text-center hover:border-[#EF5B0C] transition-all duration-300 group"
           >
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#0A0A0A] border border-[#1F1F1F] flex items-center justify-center group-hover:border-[#EF5B0C] transition-all duration-300">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#0a0a0a] border-2 border-[#2a2a2a] flex items-center justify-center group-hover:border-[#EF5B0C] transition-all duration-300">
               <Mail className="text-[#EF5B0C]" size={24} />
             </div>
             <h3 className="text-lg font-semibold text-[#F5F5F5] mb-2">Email</h3>
@@ -37,9 +37,9 @@ const Contact = () => {
             href="https://linkedin.com/in/aiden-cherniske"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#111111] border-2 border-[#1F1F1F] rounded-lg p-8 text-center hover:border-[#EF5B0C] transition-all duration-300 group"
+            className="bg-[#0a0a0a] border-2 border-[#2a2a2a] rounded-lg p-8 text-center hover:border-[#EF5B0C] transition-all duration-300 group"
           >
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#0A0A0A] border border-[#1F1F1F] flex items-center justify-center group-hover:border-[#EF5B0C] transition-all duration-300">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#0a0a0a] border-2 border-[#2a2a2a] flex items-center justify-center group-hover:border-[#EF5B0C] transition-all duration-300">
               <Linkedin className="text-[#EF5B0C]" size={24} />
             </div>
             <h3 className="text-lg font-semibold text-[#F5F5F5] mb-2">
@@ -53,9 +53,9 @@ const Contact = () => {
             href="https://github.com/ACherniske"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#111111] border-2 border-[#1F1F1F] rounded-lg p-8 text-center hover:border-[#EF5B0C] transition-all duration-300 group"
+            className="bg-[#0a0a0a] border-2 border-[#2a2a2a] rounded-lg p-8 text-center hover:border-[#EF5B0C] transition-all duration-300 group"
           >
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#0A0A0A] border border-[#1F1F1F] flex items-center justify-center group-hover:border-[#EF5B0C] transition-all duration-300">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#0a0a0a] border-2 border-[#2a2a2a] flex items-center justify-center group-hover:border-[#EF5B0C] transition-all duration-300">
               <Github className="text-[#EF5B0C]" size={24} />
             </div>
             <h3 className="text-lg font-semibold text-[#F5F5F5] mb-2">

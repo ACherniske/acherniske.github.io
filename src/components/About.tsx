@@ -33,7 +33,7 @@ const About = () => {
 
           {/* Education/Quick Facts */}
           <div className="space-y-6">
-            <div className="bg-[#111111] border-2 border-[#1F1F1F] rounded-lg p-6">
+            <div className="bg-[#1a1a1a] border-2 border-[#111111] rounded-lg p-6">
               <div className="flex items-start gap-4 mb-4">
                 <img src={bucknellLogo} alt="Bucknell Logo" className="w-12 h-12 object-contain" />
                 <div>
@@ -50,7 +50,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="bg-[#111111] border-2 border-[#1F1F1F] rounded-lg p-6">
+            <div className="bg-[#1a1a1a] border-2 border-[#111111] rounded-lg p-6">
               <h3 className="text-xl font-semibold text-[#F1F1F1] mb-4">
                 Experience
               </h3>
