@@ -5,7 +5,7 @@ export const articles: Article[] = [
   {
     id: '2',
     title: 'Plug Into Possibility',
-    description: 'Featured in Bucknell Magazine discussing digital hardware engineering and innovation.',
+    description: 'Featured in Bucknell Magazine discussing digital hardware engineering and innovation through my research.',
     url: plugIntoPossibilityPdf,
     source: 'Bucknell Magazine',
     date: 'Fall 2025',
