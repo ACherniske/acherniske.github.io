@@ -58,6 +58,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               <span className="text-sm">Live Demo</span>
             </a>
           )}
+          {project.websiteUrl && (
+            <a
+              href={project.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[#A3A3A3] hover:text-[#EF5B0C] transition-colors duration-300"
+            >
+              <ExternalLink size={18} />
+              <span className="text-sm">Website</span>
+            </a>
+          )}
         </div>
       </div>
     </div>
