@@ -1,16 +1,4 @@
-import { useState, useEffect } from 'react';
-
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false); // Track if the page is scrolled currently unused
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
