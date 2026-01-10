@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0A0A0A] border-2 border-[#1F1F1F]">
+    <footer className="bg-[#0A0A0A]">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left: Name/Brand */}
