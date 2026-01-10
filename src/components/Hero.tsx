@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, MapPin, FileText } from 'lucide-react';
 import headshot from '../assets/headshot.png';
+import AidenCherniskeResume from '../assets/AidenCherniskeResume.pdf';
 import CircuitGenerator from '../utils/pcbBackground';
 
 const Hero = () => {
@@ -147,7 +148,7 @@ const Hero = () => {
             Contact me
           </a>
           <a
-            href="/resume.pdf"
+            href={AidenCherniskeResume}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-[#f1f1f1] rounded-lg hover:bg-[#EF5B0C] transition-all duration-300 hover:scale-105 shadow-[inset_0_0_0_2px_#EF5B0C]"
