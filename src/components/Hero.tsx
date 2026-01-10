@@ -100,7 +100,7 @@ const Hero = () => {
         mask="url(#reveal-mask)"
       />
 
-      <div className="max-w-7xl mx-auto px-6 py-32 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-12">
           {/* Profile Picture */}
           <div className="flex-0-0-auto">
