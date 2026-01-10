@@ -31,3 +31,13 @@ export interface SocialLink {
   url: string;
   icon: string;
 }
+
+export interface Article {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  source: string;
+  date: string;
+  imageUrl?: string;
+}
