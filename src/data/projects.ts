@@ -4,6 +4,7 @@ import motrBack from '../assets/projects/motr-back.svg';
 import kinnectFront from '../assets/projects/kinnect-front.svg';
 import kinnectBack from '../assets/projects/kinnect-back.svg';
 import portalboxImage from '../assets/projects/portalhands.png';
+import siteImage from '../assets/projects/sitemockup.png';
 
 export const projects: Project[] = [
   {
@@ -59,6 +60,7 @@ export const projects: Project[] = [
   {
     id: 'personal-website',
     title: 'Personal Website',
+    image: siteImage,
     description: 'This very website! Built from scratch using React and TailwindCSS to showcase my projects, skills, and experience.',
     tags: ['React', 'TypeScript', 'TailwindCSS', 'Vite', 'Web Dev'],
     featured: true,
