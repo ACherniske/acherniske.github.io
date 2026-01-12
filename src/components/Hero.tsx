@@ -7,6 +7,7 @@ import CircuitGenerator from '../utils/pcbBackground';
 const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isMouseOver, setIsMouseOver] = useState(false);
+  const [autoPos, setAutoPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const generatePattern = () => {
@@ -38,6 +39,42 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
+    if (isMouseOver) return;
+
+    let animationFrameID: number;
+    let startTime: number | null = null;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+
+      const hero = document.getElementById('hero');
+      if (hero) {
+        const rect = hero.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+
+        //create a figure 8 or lissajous curve path
+        const t = elapsed / 3000; //speed
+        const x = width / 2 + Math.sin(t) * (width * 0.35);
+        const y = height / 2 + Math.sin(t * 2) * (height * 0.35);
+
+        setAutoPos({ x, y });
+      }
+
+      animationFrameID = requestAnimationFrame(animate);
+    };
+
+    animationFrameID = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameID) {
+        cancelAnimationFrame(animationFrameID);
+      }
+    };
+  }, [isMouseOver]);
+
+  useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const hero = document.getElementById('hero');
       if (hero) {
@@ -64,6 +101,9 @@ const Hero = () => {
     };
   }, []);
 
+  //use mouse position when hovering, autopos otherwise
+  const revealPos = isMouseOver ? mousePos : autoPos;
+
   return (
     <section
       id="hero"
@@ -73,21 +113,26 @@ const Hero = () => {
       <svg width="0" height="0" className="absolute">
         <defs>
           <radialGradient id="reveal-gradient">
-            <stop offset="0%" stopColor="white" stopOpacity="0.6" />
-            <stop offset="20%" stopColor="white" stopOpacity="0.4" />
-            <stop offset="40%" stopColor="white" stopOpacity="0.15" />
-            <stop offset="60%" stopColor="white" stopOpacity="0.05" />
+            <stop offset="0%" stopColor="white" stopOpacity="0.8" />
+            <stop offset="15%" stopColor="white" stopOpacity="0.6" />
+            <stop offset="30%" stopColor="white" stopOpacity="0.4" />
+            <stop offset="50%" stopColor="white" stopOpacity="0.2" />
+            <stop offset="70%" stopColor="white" stopOpacity="0.08" />
+            <stop offset="85%" stopColor="white" stopOpacity="0.03" />
+            <stop offset="100%" stopColor="white" stopOpacity="0" />
           </radialGradient>
+          <filter id="feather-blur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="20" />
+          </filter>
           <mask id="reveal-mask">
-            <rect width="100%" height="100%" fill={isMouseOver ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0)"} />
-            {isMouseOver && (
-              <circle
-                cx={mousePos.x}
-                cy={mousePos.y}
-                r="350"
-                fill="url(#reveal-gradient)"
-              />
-            )}
+            <rect width="100%" height="100%" fill="rgba(255,255,255,0.03)" />
+            <circle
+              cx={revealPos.x}
+              cy={revealPos.y}
+              r="300"
+              fill="url(#reveal-gradient)"
+              filter="url(#feather-blur)"
+            />
           </mask>
         </defs>
       </svg>
