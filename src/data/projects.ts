@@ -3,15 +3,17 @@ import motrFront from '../assets/projects/motr-front.svg';
 import motrBack from '../assets/projects/motr-back.svg';
 import kinnectFront from '../assets/projects/kinnect-front.svg';
 import kinnectBack from '../assets/projects/kinnect-back.svg';
+import portalboxImage from '../assets/projects/portalhands.png';
 
 export const projects: Project[] = [
   {
     id: 'portalbox',
     title: 'PortalBox',
+    image: portalboxImage,
     description: 'The Portal Box project is a do-it-yourself option for equipment access control designed for small shops and makerspaces.',
-    tags: ['KiCAD', 'ESP32', 'Micropython', 'IoT', 'Embedded'],
+    tags: ['KiCAD', 'ESP32', 'Micropython', 'IoT', 'Embedded', 'Hardware'],
     featured: true,
-    githubUrl: 'https://github.com/ACherniske/placeholder', // Placeholder URL
+    githubUrl: 'https://github.com/Foster-05/PortalBox-5.1',
   },
   {
     id: 'bucknell-racing', //placeholder project for baja differential control system
