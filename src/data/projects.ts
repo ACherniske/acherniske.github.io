@@ -1,4 +1,8 @@
 import { type Project } from '../types';
+import motrFront from '../assets/projects/motr-front.svg';
+import motrBack from '../assets/projects/motr-back.svg';
+import kinnectFront from '../assets/projects/kinnect-front.svg';
+import kinnectBack from '../assets/projects/kinnect-back.svg';
 
 export const projects: Project[] = [
   {
@@ -24,8 +28,8 @@ export const projects: Project[] = [
     featured: true,
     githubUrl: 'https://github.com/gabegolem/music-of-the-ring',
     pcbImages: {
-      front: 'src/assets/projects/motr-front.svg',
-      back: 'src/assets/projects/motr-back.svg',
+      front: motrFront,
+      back: motrBack,
       
     },
   },
@@ -37,8 +41,8 @@ export const projects: Project[] = [
     featured: true,
     websiteUrl: 'https://seniorlivingkinnect.com/',
     pcbImages: {
-      front: 'src/assets/projects/kinnect-front.svg',
-      back: 'src/assets/projects/kinnect-back.svg',
+      front: kinnectFront,
+      back: kinnectBack,
     },
   },
   {
