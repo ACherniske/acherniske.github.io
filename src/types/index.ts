@@ -4,6 +4,10 @@ export interface Project {
   description: string;
   tags: string[];
   image?: string;
+  pcbImages?: {
+    front: string;
+    back: string;
+  };
   githubUrl?: string;
   liveUrl?: string;
   websiteUrl?: string;

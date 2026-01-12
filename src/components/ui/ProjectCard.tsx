@@ -8,9 +8,32 @@ interface ProjectCardProps {
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <div className="bg-[#0A0A0A] border-2 border-[#2a2a2a] rounded-lg overflow-hidden hover:border-[#EF5B0C] transition-all duration-300 group  flex flex-col h-full">
-      {/* Image Placeholder */}
+      {/* Image Section */}
       <div className="h-48 bg-[#0a0a0a] flex items-center justify-center">
-        <div className="text-6xl opacity-20">⚡</div>
+        {project.pcbImages ? (
+          // PCB Images - Front and Back side by side
+          <div className="w-full h-full flex gap-5 pt-5 px-4">
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <img
+                src={project.pcbImages.front}
+                alt={`${project.title} PCB Front`}
+                className="w-full h-full object-contain"
+              />
+              <span className="text-xs text-[#A3A3A3] mt-1">Front</span>
+            </div>
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <img
+                src={project.pcbImages.back}
+                alt={`${project.title} PCB Back`}
+                className="w-full h-full object-contain"
+              />
+              <span className="text-xs text-[#A3A3A3] mt-1">Back</span>
+            </div>
+          </div>
+        ) : (
+          // Placeholder for projects without images
+          <div className="text-6xl opacity-20">⚡</div>
+        )}
       </div>
 
       {/* Content */}

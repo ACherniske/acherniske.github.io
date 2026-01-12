@@ -23,6 +23,11 @@ export const projects: Project[] = [
     tags: ['ESP32', 'Sensors', 'Music Tech', 'Performance Art', 'Hardware'],
     featured: true,
     githubUrl: 'https://github.com/gabegolem/music-of-the-ring',
+    pcbImages: {
+      front: 'src/assets/projects/motr-front.svg',
+      back: 'src/assets/projects/motr-back.svg',
+      
+    },
   },
   {
     id: 'kinnect-senior-living',
@@ -31,6 +36,10 @@ export const projects: Project[] = [
     tags: ['ESP32', 'Embedded', 'IoT','Consulting', 'Hardware'],
     featured: true,
     websiteUrl: 'https://seniorlivingkinnect.com/',
+    pcbImages: {
+      front: 'src/assets/projects/kinnect-front.svg',
+      back: 'src/assets/projects/kinnect-back.svg',
+    },
   },
   {
     id: 'stewardview',
