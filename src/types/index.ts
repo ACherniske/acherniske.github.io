@@ -20,6 +20,7 @@ export interface Skill {
   level?: 'beginner' | 'intermediate' | 'advanced' | 'expert';
   description?: string;
   icon?: string;
+  alwaysShowIcon: boolean;
 }
 
 export interface Experience {

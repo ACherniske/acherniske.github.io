@@ -13,20 +13,20 @@ import linuxIcon from '../assets/logos/linux.svg';
 
 export const skills: Skill[] = [
   // Core Hardware/Embedded - Most Important
-  { name: 'KiCAD', category: 'hardware', level: 'expert', description: 'PCB Design & Layout', icon: kicadIcon },
-  { name: 'ESP32', category: 'hardware', level: 'advanced', description: 'Microcontroller', icon: esp32Icon },
-  { name: 'YosysHQ Toolchain', category: 'hardware', level: 'intermediate', description: 'FPGA EDA Suite', icon: yosyshqIcon },
-  { name: 'Arduino', category: 'hardware', level: 'advanced', description: 'Rapid Prototyping', icon: arduinoIcon },
+  { name: 'KiCAD', category: 'hardware', level: 'expert', description: 'PCB Design & Layout', icon: kicadIcon, alwaysShowIcon: true },
+  { name: 'ESP32', category: 'hardware', level: 'advanced', description: 'Microcontroller', icon: esp32Icon, alwaysShowIcon: false},
+  { name: 'YosysHQ Toolchain', category: 'hardware', level: 'intermediate', description: 'FPGA EDA Suite', icon: yosyshqIcon, alwaysShowIcon: false },
+  { name: 'Arduino', category: 'hardware', level: 'advanced', description: 'Rapid Prototyping', icon: arduinoIcon, alwaysShowIcon: false },
   
   // Core Programming Languages
-  { name: 'Python', category: 'software', level: 'advanced', description: 'Data & Scripting', icon: pythonIcon },
-  { name: 'C', category: 'software', level: 'intermediate', description: 'Low-Level Programming', icon: cIcon },
-  { name: 'C++', category: 'software', level: 'intermediate', description: 'Systems Programming', icon: cppIcon },
-  { name: 'Assembly', category: 'software', level: 'intermediate', description: 'Machine Code', icon: 'ASM' },
-  { name: 'MicroPython', category: 'software', level: 'advanced', description: 'Python for MCUs', icon: micropythonIcon },
-  { name: 'Verilog', category: 'software', level: 'intermediate', description: 'Hardware Description', icon: verilogIcon },
+  { name: 'Python', category: 'software', level: 'advanced', description: 'Data & Scripting', icon: pythonIcon, alwaysShowIcon: true },
+  { name: 'C', category: 'software', level: 'intermediate', description: 'Low-Level Programming', icon: cIcon, alwaysShowIcon: true },
+  { name: 'C++', category: 'software', level: 'intermediate', description: 'Systems Programming', icon: cppIcon, alwaysShowIcon: true },
+  { name: 'Assembly', category: 'software', level: 'intermediate', description: 'Machine Code', icon: 'ASM', alwaysShowIcon: false },
+  { name: 'MicroPython', category: 'software', level: 'advanced', description: 'Python for MCUs', icon: micropythonIcon, alwaysShowIcon: false },
+  { name: 'Verilog', category: 'software', level: 'intermediate', description: 'Hardware Description', icon: verilogIcon, alwaysShowIcon: true },
   
   // Development Tools
-  { name: 'Git', category: 'tools', level: 'advanced', description: 'Version Control', icon: gitIcon },
-  { name: 'Linux', category: 'tools', level: 'advanced', description: 'Development OS', icon: linuxIcon },
+  { name: 'Git', category: 'tools', level: 'advanced', description: 'Version Control', icon: gitIcon, alwaysShowIcon: true },
+  { name: 'Linux', category: 'tools', level: 'advanced', description: 'Development OS', icon: linuxIcon, alwaysShowIcon: false },
 ];
