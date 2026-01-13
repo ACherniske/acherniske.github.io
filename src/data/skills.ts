@@ -1,15 +1,15 @@
 import { type Skill } from '../types';
-import kicadIcon from '../assets/kicad.svg';
-import esp32Icon from '../assets/esp32.svg';
-import yosyshqIcon from '../assets/yosyshq.png';
-import arduinoIcon from '../assets/arduino.svg';
-import pythonIcon from '../assets/python.svg';
-import cIcon from '../assets/C.svg';
-import cppIcon from '../assets/CPP.svg';
-import micropythonIcon from '../assets/micropython.svg';
-import verilogIcon from '../assets/verilog.svg';
-import gitIcon from '../assets/git.svg';
-import linuxIcon from '../assets/linux.svg';
+import kicadIcon from '../assets/logos/kicad.svg';
+import esp32Icon from '../assets/logos/esp32.svg';
+import yosyshqIcon from '../assets/logos/yosyshq.png';
+import arduinoIcon from '../assets/logos/arduino.svg';
+import pythonIcon from '../assets/logos/python.svg';
+import cIcon from '../assets/logos/C.svg';
+import cppIcon from '../assets/logos/CPP.svg';
+import micropythonIcon from '../assets/logos/micropython.svg';
+import verilogIcon from '../assets/logos/verilog.svg';
+import gitIcon from '../assets/logos/git.svg';
+import linuxIcon from '../assets/logos/linux.svg';
 
 export const skills: Skill[] = [
   // Core Hardware/Embedded - Most Important

@@ -1,5 +1,5 @@
 import { type Article } from '../types';
-import plugIntoPossibilityPdf from '../assets/PlugIntoPossibility.pdf';
+import plugIntoPossibilityPdf from '../assets/pdfs/PlugIntoPossibility.pdf';
 
 export const articles: Article[] = [
   {
