@@ -1,4 +1,4 @@
-import wordmark from '../assets/Wordmark.svg';
+import wordmark from '../assets/brand/Wordmark.svg';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -1,5 +1,5 @@
 import { skills } from '../data/skills';
-import bucknellLogo from '../assets/bucknellLogo.png';
+import bucknellLogo from '../assets/logos/bucknellLogo.png';
 
 const About = () => {
   return (
