@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, MapPin, FileText } from 'lucide-react';
-import headshot from '../assets/headshot.png';
-import AidenCherniskeResume from '../assets/AidenCherniskeResume.pdf';
+import headshot from '../assets/brand/headshot.png';
+import AidenCherniskeResume from '../assets/pdfs/AidenCherniskeResume.pdf';
 import CircuitGenerator from '../utils/pcbBackground';
 
 const Hero = () => {
@@ -145,25 +145,25 @@ const Hero = () => {
         mask="url(#reveal-mask)"
       />
 
-      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-12">
           {/* Profile Picture */}
-          <div className="flex-0-0-auto">
-            <div className="w-44 h-44 rounded-full bg-[#EF5B0C] p-1">
+          <div className="shrink-0">
+            <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full bg-[#EF5B0C] p-1">
               <img
                 src={headshot}
                 alt="AC"
-                className="w-full h-full rounded-full object-cover"
+                className="w-full h-auto rounded-full object-cover"
               />
             </div>
           </div>
 
           {/* Name and Location */}
           <div className="text-center md:text-left">
-            <h2 className="text-2xl font-semibold text-[#f1f1f1] mb-2">
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#f1f1f1] mb-2">
               Aiden Cherniske
             </h2>
-            <p className="text-[#A3A3A3] flex items-center justify-center md:justify-start gap-2">
+            <p className="text-sm sm:text-base text-[#A3A3A3] flex items-center justify-center md:justify-start gap-2">
               <MapPin size={16} className="text-[#EF5B0C]" />
               Based in Connecticut, USA
             </p>
@@ -171,7 +171,7 @@ const Hero = () => {
         </div>
 
         {/* Main Title */}
-        <h1 className="text-6xl md:text-8xl font-bold text-[#f1f1f1] mb-8 leading-tight text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-[#f1f1f1] mb-8 leading-tight text-center">
           DIGITAL HARDWARE
           <br />
           <span className="text-transparent bg-clip-text bg-[#EF5B0C]">
@@ -180,7 +180,7 @@ const Hero = () => {
         </h1>
 
         {/* Contact Button */}
-        <div className="mb-8 text-center flex items-center justify-center gap-4">
+        <div className="mb-6 md:mb-8 text-center flex items-center justify-center gap-4">
           <a
             href="#contact"
             onClick={(e) => {
@@ -204,28 +204,28 @@ const Hero = () => {
         </div>
 
         {/* Social Links */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-3 sm:gap-4">
           <a
             href="mailto:apcherniske@gmail.com"
-            className="w-12 h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
           >
-            <Mail size={20} />
+            <Mail size={18} className="sm:w-5 sm:h-5" />
           </a>
           <a
             href="https://linkedin.com/in/aiden-cherniske"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
           >
-            <Linkedin size={20} />
+            <Linkedin size={18} className="sm:w-5 sm:h-5" />
           </a>
           <a
             href="https://github.com/ACherniske"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-[#2a2a2a] hover:border-[#EF5B0C] flex items-center justify-center text-[#A3A3A3] hover:text-[#EF5B0C] transition-all duration-300"
           >
-            <Github size={20} />
+            <Github size={18} className="sm:w-5 sm:h-5" />
           </a>
         </div>
       </div>
