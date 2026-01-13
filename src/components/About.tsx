@@ -110,7 +110,9 @@ const About = () => {
             {skills.map((skill) => (
               <div
                 key={skill.name}
-                className="bg-[#1F1F1F] rounded-lg p-4 hover:bg-[#252525] transition-colors duration-300 border-2 border-transparent hover:border-[#EF5B0C] w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)]"
+                className={`bg-[#1F1F1F] rounded-lg p-4 hover:bg-[#252525] transition-colors duration-300 border-2 border-transparent hover:border-[#EF5B0C] w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(25%-0.75rem)] ${
+                  skill.alwaysShowIcon ? '' : 'hidden md:flex'
+                }`}
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-[#2A2A2A] rounded-lg flex items-center justify-center shrink-0 overflow-hidden">

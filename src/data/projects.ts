@@ -15,6 +15,7 @@ export const projects: Project[] = [
     tags: ['KiCAD', 'ESP32', 'Micropython', 'IoT', 'Embedded', 'Hardware'],
     featured: true,
     githubUrl: 'https://github.com/Foster-05/PortalBox-5.1',
+    alwaysShowProject: true,
   },
   {
     id: 'bucknell-racing', //placeholder project for baja differential control system
@@ -22,6 +23,7 @@ export const projects: Project[] = [
     description: 'Placeholder.',
     tags: ['KiCAD', 'Automotive', 'Embedded'],
     featured: false,
+    alwaysShowProject: false,
   },
   {
     id: 'music-of-the-ring',
@@ -33,8 +35,8 @@ export const projects: Project[] = [
     pcbImages: {
       front: motrFront,
       back: motrBack,
-      
     },
+    alwaysShowProject: true
   },
   {
     id: 'kinnect-senior-living',
@@ -47,6 +49,7 @@ export const projects: Project[] = [
       front: kinnectFront,
       back: kinnectBack,
     },
+    alwaysShowProject: true
   },
   {
     id: 'stewardview',
@@ -56,6 +59,7 @@ export const projects: Project[] = [
     featured: true,
     githubUrl: 'https://github.com/ACherniske/stewardview',
     liveUrl: 'https://acherniske.github.io/StewardView/',
+    alwaysShowProject: true,
   },
   {
     id: 'personal-website',
@@ -66,6 +70,7 @@ export const projects: Project[] = [
     featured: true,
     githubUrl: 'https://github.com/ACherniske/acherniske.github.io',
     liveUrl: 'https://acherniske.github.io',
+    alwaysShowProject: false,
   },
   {
     id: 'eceg431-nand2tetris',
@@ -76,5 +81,6 @@ export const projects: Project[] = [
     featured: true,
     githubUrl: 'https://github.com/ACherniske/ECEG431',
     liveUrl: 'https://github.com/Swimotter/JackTetris',
+    alwaysShowProject: false,
   },
 ];

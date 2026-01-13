@@ -12,6 +12,7 @@ export interface Project {
   liveUrl?: string;
   websiteUrl?: string;
   featured: boolean;
+  alwaysShowProject: boolean;
 }
 
 export interface Skill {

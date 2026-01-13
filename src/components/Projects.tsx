@@ -21,7 +21,12 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <div
+              key={project.id}
+              className={project.alwaysShowProject ? '' : 'hidden md:block'}
+            >
+              <ProjectCard project={project} />
+            </div>
           ))}
         </div>
       </div>
