@@ -8,6 +8,15 @@ const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [autoPos, setAutoPos] = useState({ x: 0, y: 0 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  // Detect touch device
+  useEffect(() => {
+    const checkTouch = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    checkTouch();
+  }, []);
 
   useEffect(() => {
     const generatePattern = () => {
@@ -38,8 +47,9 @@ const Hero = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  //Auto-animate position when mouse is not hovering OR on touch devices
   useEffect(() => {
-    if (isMouseOver) return;
+    if (isMouseOver && !isTouchDevice) return;
 
     let animationFrameID: number;
     let startTime: number | null = null;
@@ -72,9 +82,12 @@ const Hero = () => {
         cancelAnimationFrame(animationFrameID);
       }
     };
-  }, [isMouseOver]);
+  }, [isMouseOver, isTouchDevice]);
 
   useEffect(() => {
+    //Skip mouse tracking on touch devices
+    if (isTouchDevice) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       const hero = document.getElementById('hero');
       if (hero) {
@@ -99,10 +112,10 @@ const Hero = () => {
       hero?.removeEventListener('mouseenter', handleMouseEnter);
       hero?.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, []);
+  }, [isTouchDevice]);
 
-  //use mouse position when hovering, autopos otherwise
-  const revealPos = isMouseOver ? mousePos : autoPos;
+  // Use mouse position when hovering (desktop only), autopos otherwise
+  const revealPos = (isMouseOver && !isTouchDevice) ? mousePos : autoPos;
 
   return (
     <section
@@ -146,7 +159,7 @@ const Hero = () => {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-12 mb-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 mb-8 md:mb-12">
           {/* Profile Picture */}
           <div className="shrink-0">
             <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-full bg-[#EF5B0C] p-1">
@@ -171,7 +184,7 @@ const Hero = () => {
         </div>
 
         {/* Main Title */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-[#f1f1f1] mb-8 leading-tight text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-[#f1f1f1] mb-6 md:mb-8 leading-tight text-center">
           DIGITAL HARDWARE
           <br />
           <span className="text-transparent bg-clip-text bg-[#EF5B0C]">
@@ -180,25 +193,25 @@ const Hero = () => {
         </h1>
 
         {/* Contact Button */}
-        <div className="mb-6 md:mb-8 text-center flex items-center justify-center gap-4">
+        <div className="mb-6 md:mb-8 text-center flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#EF5B0C] text-[#f1f1f1] rounded-lg hover:bg-[#DC4E08] transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-[#EF5B0C] text-[#f1f1f1] rounded-lg hover:bg-[#DC4E08] transition-all duration-300 hover:scale-105 text-sm sm:text-base w-full sm:w-auto justify-center"
           >
-            <Mail size={20} />
+            <Mail size={18} className="sm:w-5 sm:h-5" />
             Contact me
           </a>
           <a
             href={AidenCherniskeResume}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] text-[#f1f1f1] rounded-lg hover:bg-[#EF5B0C] transition-all duration-300 hover:scale-105 shadow-[inset_0_0_0_2px_#EF5B0C]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 bg-[#1a1a1a] text-[#f1f1f1] rounded-lg hover:bg-[#EF5B0C] transition-all duration-300 hover:scale-105 shadow-[inset_0_0_0_2px_#EF5B0C] text-sm sm:text-base w-full sm:w-auto justify-center"
           >
-            <FileText size={20} />
+            <FileText size={18} className="sm:w-5 sm:h-5" />
             Resume
           </a>
         </div>
