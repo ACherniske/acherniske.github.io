@@ -3,28 +3,28 @@ import bucknellLogo from '../assets/logos/bucknellLogo.png';
 
 const About = () => {
   return (
-    <section id="about" className="py-32 bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-[#0a0a0a]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Content Grid */}
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           {/* Bio */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#F1F1F1] mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F5F5F5] mb-3 sm:mb-4">
               About Me
             </h2>
-            <div className="w-20 h-1 bg-[#EF5B0C] mb-6"></div>
+            <div className="w-16 sm:w-20 h-1 bg-[#EF5B0C] mb-6"></div>
             
-            <p className="text-[#A3A3A3] text-lg leading-relaxed mb-6">
+            <p className="text-[#A3A3A3] text-base sm:text-lg mt-4 sm:mt-6 max-w-2xl mb-6 leading-relaxed">
               I'm a <span className="text-[#EF5B0C] font-medium">Computer Engineering</span> student @ <span className="text-[#EF5B0C] font-medium">Bucknell University</span> focused on digital hardware design. 
               I work across the full hardware stack — designing custom PCBs in <span className="text-[#EF5B0C] font-medium">KiCAD</span>, developing 
               <span className="text-[#EF5B0C] font-medium"> embedded firmware</span> for microcontrollers and building <span className="text-[#EF5B0C] font-medium">IoT systems</span> that solve real problems.
             </p>
-            <p className="text-[#A3A3A3] text-lg leading-relaxed mb-6">
+            <p className="text-[#A3A3A3] text-base sm:text-lg mt-4 sm:mt-6 max-w-2xl mb-6 leading-relaxed">
               Currently, I'm exploring the intersection of hardware and firmware development through 
               RFID authentication systems and racing telemetry projects, while honing my skills in <span className="text-[#EF5B0C] font-medium">FPGA 
               development</span> with a focus on <span className="text-[#EF5B0C] font-medium">signal processing</span> and <span className="text-[#EF5B0C] font-medium">software-defined radio</span>.
             </p>
-            <p className="text-[#A3A3A3] text-lg leading-relaxed">
+            <p className="text-[#A3A3A3] text-base sm:text-lg leading-relaxed">
               When I'm not designing circuits or writing code, I enjoy teaching and sharing knowledge with 
               the engineering community, contributing to conservation efforts through technology, and 
               pursuing digital design and photography.

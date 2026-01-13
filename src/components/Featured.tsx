@@ -3,11 +3,12 @@ import { articles } from '../data/articles';
 
 const Featured = () => {
   return (
-    <section id="featured" className="py-20 bg-[#0A0A0A]">
+    <section id="featured" className="py-12 sm:py-16 md:py-20 bg-[#0A0A0A]">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-[#F1F1F1] mb-4">
           Featured In
         </h2>
+        <div className="w-16 sm:w-20 h-1 bg-[#EF5B0C] mb-6"></div>
         <p className="text-[#A3A3A3] mb-12 text-lg max-w-2xl">
           Articles and stories where I've been featured
         </p>
