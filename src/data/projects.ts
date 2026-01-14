@@ -4,8 +4,12 @@ import motrFront from '../assets/projects/motr-front.svg';
 import motrBack from '../assets/projects/motr-back.svg';
 import kinnectFront from '../assets/projects/kinnect-front.svg';
 import kinnectBack from '../assets/projects/kinnect-back.svg';
-import portalboxImage from '../assets/projects/portalhands.png';
 import siteImage from '../assets/projects/sitemockup.png';
+import portalThumbnail from '../assets/projects/portalhands.png';
+import portalOld from '../assets/projects/portalOld.jpg';
+import portalLayout from '../assets/projects/portalPCB.png';
+import portalSchematic from '../assets/projects/portalSchem.png';
+import portalComparison from '../assets/projects/portalComp.jpeg';
 
 // Common tags mapping
 export const commonTags: Record<string, string[]> = {
@@ -29,12 +33,44 @@ export const projects: Project[] = [
   {
     id: 'portalbox',
     title: 'PortalBox',
-    image: portalboxImage,
+    image: portalThumbnail,
     description: 'The Portal Box project is a do-it-yourself option for equipment access control designed for small shops and makerspaces.',
     tags: expandTags(['hardware', 'esp32', 'Micropython']),
     featured: true,
     githubUrl: 'https://github.com/Foster-05/PortalBox-5.1',
     alwaysShowProject: true,
+    images: [portalOld, portalLayout, portalSchematic, portalComparison],
+    longDescription: 
+    
+    `The Portal Box project is a do-it-yourself option for equipment access control designed for small shops and makerspaces. 
+      The system uses interlocks to ensure that equipment can only be powered on when authorized users are present, enhancing safety and security in shared workspaces.\n\n
+
+      I had the privilege of collaborating on Version 5 of the PortalBox system, focusing on improved speed and reliability by
+      optimizing the PCB design and firmware implementation. We also aimed to reduce costs and enhance user experience through better documentation and assembly instructions.\n\n
+
+      My primary contributions to the project centered on the embedded software and electronics design foundation. I created the initial KiCAD schematic based on previous versions, 
+      establishing the groundwork for our hardware revision.\n\n
+      
+      Drawing on my experience with KiCAD, I mentored team members in PCB layout best practices, ensuring a robust and manufacturable design.
+      This collaborative approach allowed us to iterate rapidly through design revisions while maintaining consistency and quality in our hardware development.\n\n
+      
+      On the firmware side, I took full 
+      ownership of the embedded software development. I wrote the entire firmware stack in MicroPython from scratch for the ESP32 microcontroller, reimagining and improving upon the functionality 
+      from previous versions that had run on Raspberry Pi.\n\n
+      
+      I also collaborated with an additional team member to update the REST API and PHP management portal, ensuring seamless integration between 
+      the embedded firmware and the web-based management system. This work was essential for creating a cohesive user experience and allowing administrators to easily configure and monitor their 
+      equipment access systems.\n\n
+      
+      The modular, open-source nature of the project means all our work is available on our public GitHub repository, enabling makerspaces worldwide to implement and 
+      customize the PortalBox for their needs.`,
+      
+    features: [
+      'User authentication via RFID cards',
+      'Web-based management interface',
+      'Real-time access logging',
+      'Touchscreen display for user interaction',
+    ],
   },
   {
     id: 'bucknell-racing', //placeholder project for baja differential control system
