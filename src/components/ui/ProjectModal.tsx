@@ -16,7 +16,7 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
   const images = project.images || [];
   const pcbImages = project.pcbImages ? [project.pcbImages.front, project.pcbImages.back] : [];
   const thumbnail = project.image ? [project.image] : [];
-  const allImages = [...images, ...pcbImages, ...thumbnail].filter(Boolean);
+  const allImages = [...thumbnail, ...pcbImages, ...images].filter(Boolean);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
@@ -150,8 +150,14 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
             <h3 className="text-xl sm:text-2xl font-semibold text-[#F5F5F5] mb-3 sm:mb-4 border-l-4 border-[#EF5B0C] pl-3 sm:pl-4">
               About
             </h3>
-            <div className="text-[#A3A3A3] text-sm sm:text-base whitespace-pre-line leading-relaxed">
-              {project.longDescription || project.description}
+            <div className="text-[#A3A3A3] text-sm sm:text-base leading-relaxed space-y-4">
+              {(project.longDescription || project.description)
+                .split('\n\n')
+                .map((paragraph, idx) => (
+                  <p key={idx} className="text-left sm:text-justify">
+                    {paragraph}
+                  </p>
+                ))}
             </div>
           </div>
 
@@ -164,7 +170,6 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                 {project.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 bg-[#111111] border-2 border-[#2a2a2a] rounded-lg">
-                    <span className="text-[#EF5B0C] text-base sm:text-lg mt-0.5 shrink-0">✓</span>
                     <span className="text-[#A3A3A3] text-sm sm:text-base">{feature}</span>
                   </div>
                 ))}
