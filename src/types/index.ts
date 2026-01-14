@@ -13,6 +13,10 @@ export interface Project {
   websiteUrl?: string;
   featured: boolean;
   alwaysShowProject: boolean;
+  longDescription?: string;
+  images?: string[];
+  features?: string[];
+  technicalDetails?: string[];
 }
 
 export interface Skill {
