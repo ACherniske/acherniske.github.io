@@ -1,15 +1,26 @@
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Globe } from 'lucide-react';
 import { type Project } from '../../types';
 
 interface ProjectCardProps {
   project: Project;
+  onOpenModal: (project: Project) => void;
 }
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project, onOpenModal }: ProjectCardProps) => {
   return (
-    <div className="bg-[#0A0A0A] border-2 border-[#2a2a2a] rounded-lg overflow-hidden hover:border-[#EF5B0C] transition-all duration-300 group  flex flex-col h-full">
+    <div 
+      onClick={() => onOpenModal(project)}
+      className="bg-[#0A0A0A] border-2 border-[#2a2a2a] rounded-lg overflow-hidden hover:border-[#EF5B0C] transition-all duration-300 group flex flex-col h-full cursor-pointer"
+    >
       {/* Image Section */}
-      <div className="h-64 bg-[#0a0a0a] flex items-center justify-center">
+      <div className="h-64 bg-[#0a0a0a] flex items-center justify-center relative overflow-hidden">
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-[#EF5B0C]/0 group-hover:bg-[#EF5B0C]/50 transition-all duration-100 flex items-center justify-center z-10">
+          <span className="text-[#F5F5F5] opacity-0 group-hover:opacity-100 transition-opacity duration-100 text-lg font-semibold">
+            Click to view details →
+          </span>
+        </div>
+
         {project.pcbImages ? (
           // PCB Images - Front and Back side by side
           <div className="w-full h-full flex gap-5 p-5">
@@ -54,7 +65,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag) => (
+          {project.tags.slice(0, 6).map((tag) => (
             <span
               key={tag}
               className="px-3 py-1 bg-[#111111] border-2 border-[#2a2a2a] text-[#A3A3A3] text-sm rounded-full"
@@ -62,42 +73,32 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               {tag}
             </span>
           ))}
+          {project.tags.length > 6 && (
+            <span className="px-3 py-1 bg-[#111111] border-2 border-[#2a2a2a] text-[#A3A3A3] text-sm rounded-full">
+              +{project.tags.length - 6}
+            </span>
+          )}
         </div>
 
-        {/* Links */}
+        {/* Links*/}
         <div className="flex items-center gap-4 mt-auto">
           {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[#A3A3A3] hover:text-[#EF5B0C] transition-colors duration-300"
-            >
+            <div className="flex items-center gap-2 text-[#A3A3A3]">
               <Github size={18} />
-              <span className="text-sm">Github</span>
-            </a>
+              <span className="text-sm">GitHub</span>
+            </div>
           )}
           {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[#A3A3A3] hover:text-[#EF5B0C] transition-colors duration-300"
-            >
+            <div className="flex items-center gap-2 text-[#A3A3A3]">
               <ExternalLink size={18} />
               <span className="text-sm">Live Demo</span>
-            </a>
+            </div>
           )}
           {project.websiteUrl && (
-            <a
-              href={project.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-[#A3A3A3] hover:text-[#EF5B0C] transition-colors duration-300"
-            >
-              <ExternalLink size={18} />
+            <div className="flex items-center gap-2 text-[#A3A3A3]">
+              <Globe size={18} />
               <span className="text-sm">Website</span>
-            </a>
+            </div>
           )}
         </div>
       </div>
