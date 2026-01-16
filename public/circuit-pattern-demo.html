@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCB Background Generator Test</title>
+    <title>PCB Circuit Pattern Generator</title>
     <style>
         * {
             margin: 0;
@@ -20,35 +20,46 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            overflow: hidden;
         }
 
         h1 {
-            margin: 20px 0;
-            color: #EF5B0C;
+            margin: 10px 0 5px;
+            color: #FFFFFF;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #A3A3A3;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 0.95em;
         }
 
         .controls {
             display: flex;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 15px;
+            margin: 10px 0;
             flex-wrap: wrap;
             justify-content: center;
+            align-items: center;
         }
 
         button {
-            background: #EF5B0C;
-            color: white;
+            background: #FFFFFF;
+            color: #000000;
             border: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             transition: all 0.2s;
         }
 
         button:hover {
-            background: #DC4E08;
+            background: #E0E0E0;
             transform: translateY(-2px);
         }
 
@@ -56,61 +67,125 @@
             transform: translateY(0);
         }
 
+        .color-palette {
+            display: flex;
+            gap: 8px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .color-palette-label {
+            color: #A3A3A3;
+            font-size: 13px;
+            margin-right: 5px;
+        }
+
+        .color-option {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            border-color: white;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+        }
+
         #pcb-container {
             width: 100%;
             max-width: 1200px;
-            height: 800px;
+            height: 500px;
             background: #0A0A0A;
             border: 2px solid #EF5B0C;
             border-radius: 12px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 32px rgba(239, 91, 12, 0.3);
         }
 
-        #pcb-test {
+        #pcb-canvas {
             width: 100%;
             height: 100%;
         }
 
-        #status {
-            margin-top: 20px;
-            padding: 12px 24px;
-            background: rgba(239, 91, 12, 0.1);
-            border: 1px solid #EF5B0C;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-
         .info {
-            margin: 20px 0;
+            margin: 15px 0 10px;
             max-width: 800px;
             text-align: center;
             color: #A3A3A3;
             line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .links {
+            margin-top: 30px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .link-button {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #A3A3A3;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.95em;
+        }
+
+        .link-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #FFFFFF;
+            color: #FFFFFF;
         }
     </style>
 </head>
 <body>
-    <h1>PCB Background Generator Test</h1>
-    
+    <h1>PCB Circuit Pattern Generator</h1>
+    <div class="subtitle">Algorithmic trace routing with recursive branching</div>
+
     <div class="info">
-        <p>This generator uses recursive branching with angle-based routing (like real PCB traces).</p>
-        <p>Each line can branch into 3 directions: straight, +45°, or -45°.</p>
+        <p>This generator creates realistic PCB trace patterns using angle-based recursive routing. Each trace can branch at 0°, +45°, or -45° angles, mimicking real circuit board designs.</p>
     </div>
 
     <div class="controls">
-        <button onclick="generate(5)">Generate (5 start points)</button>
-        <button onclick="generate(10)">Generate (10 start points)</button>
-        <button onclick="generateDense()">Generate Dense</button>
-        <button onclick="generateSparse()">Generate Sparse</button>
-        <button onclick="clearCanvas()">Clear</button>
+        <button onclick="generatePattern()">Generate New Pattern</button>
+        <button onclick="clearCanvas()">Clear Canvas</button>
+    </div>
+
+    <div class="color-palette">
+        <span class="color-palette-label">Trace Color:</span>
+        <div class="color-option selected" style="background: #EF5B0C" onclick="setColor('#EF5B0C', '#DC4E08')" title="Orange"></div>
+        <div class="color-option" style="background: #00D9FF" onclick="setColor('#00D9FF', '#00B8D9')" title="Cyan"></div>
+        <div class="color-option" style="background: #00FF94" onclick="setColor('#00FF94', '#00D97A')" title="Green"></div>
+        <div class="color-option" style="background: #FF3366" onclick="setColor('#FF3366', '#D92952')" title="Pink"></div>
+        <div class="color-option" style="background: #9D4EDD" onclick="setColor('#9D4EDD', '#7B2CBF')" title="Purple"></div>
+        <div class="color-option" style="background: #FFD60A" onclick="setColor('#FFD60A', '#FFC300')" title="Yellow"></div>
+        <div class="color-option" style="background: #FFFFFF" onclick="setColor('#FFFFFF', '#E0E0E0')" title="White"></div>
     </div>
 
     <div id="pcb-container">
-        <svg id="pcb-test"></svg>
+        <svg id="pcb-canvas"></svg>
     </div>
 
-    <div id="status">Ready to generate PCB pattern</div>
+    <div class="links">
+        <a href="https://acherniske.github.io" target="_blank" rel="noopener noreferrer" class="link-button">View Implementation →</a>
+        <a href="#" class="link-button">View on GitHub →</a>
+    </div>
 
     <script>
         class CircuitGenerator {
@@ -121,18 +196,19 @@
                 }
 
                 this.config = {
-                    gridSpacing: 10,
-                    lineWidth: 2.5,
+                    gridSpacing: 12,
+                    lineWidth: 3,
                     lineColor: '#EF5B0C',
                     padColor: '#DC4E08',
                     padSize: 6,
-                    branchProbability: 0.7,
+                    branchProbability: 0.5,
                     ...config,
                 };
 
                 this.width = 0;
                 this.height = 0;
                 this.gridState = [];
+                this.drawnLines = [];
             }
 
             initializeGrid() {
@@ -141,6 +217,7 @@
                 this.height = Math.floor(rect.height / this.config.gridSpacing);
 
                 this.gridState = [];
+                this.drawnLines = [];
                 for (let x = 0; x < this.width; x++) {
                     this.gridState.push(Array(this.height).fill(false));
                 }
@@ -157,6 +234,25 @@
 
             isEmpty(x, y) {
                 return x >= 0 && x < this.width && y >= 0 && y < this.height && !this.gridState[x][y];
+            }
+
+            linesIntersect(x1, y1, x2, y2, x3, y3, x4, y4) {
+                const denom = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
+                if (Math.abs(denom) < 0.0001) return false;
+
+                const t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / denom;
+                const u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / denom;
+
+                return t > 0.01 && t < 0.99 && u > 0.01 && u < 0.99;
+            }
+
+            wouldCrossExistingLine(x1, y1, x2, y2) {
+                for (const line of this.drawnLines) {
+                    if (this.linesIntersect(x1, y1, x2, y2, line.x1, line.y1, line.x2, line.y2)) {
+                        return true;
+                    }
+                }
+                return false;
             }
 
             renderLine(x1, y1, x2, y2) {
@@ -190,15 +286,20 @@
                     return true;
                 }
 
+                if (this.wouldCrossExistingLine(x0, y0, x1, y1)) {
+                    return true;
+                }
+
                 this.gridState[x1][y1] = true;
                 this.gridState[midX][midY] = true;
                 this.renderLine(x0, y0, x1, y1);
+                
+                this.drawnLines.push({ x1: x0, y1: y0, x2: x1, y2: y1 });
 
                 let deadEnd = true;
                 const angle = Math.atan2(x1 - x0, y1 - y0);
 
-                // Try continuing in similar directions (straight, +45°, -45°)
-                const angleOffsets = this.shuffle([0, Math.PI / 4, -Math.PI / 4]);
+                const angleOffsets = this.shuffle([0, Math.PI / 4, -Math.PI / 4]).slice(0, 2);
 
                 angleOffsets.forEach((da) => {
                     if (Math.random() > this.config.branchProbability) {
@@ -212,21 +313,28 @@
                 });
 
                 if (deadEnd) {
+                    if (Math.random() < 0.3) {
+                        const viaCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                        viaCircle.setAttribute('cx', (x1 + 0.5) * this.config.gridSpacing);
+                        viaCircle.setAttribute('cy', (y1 + 0.5) * this.config.gridSpacing);
+                        viaCircle.setAttribute('r', '3');
+                        viaCircle.setAttribute('fill', this.config.padColor);
+                        viaCircle.setAttribute('opacity', '0.6');
+                        this.svg.appendChild(viaCircle);
+                    }
                     this.renderPad(x1, y1);
                 }
 
                 return false;
             }
 
-            generate(startPointCount = 5) {
-                // Clear existing content
+            generate(startPointCount = 3) {
                 while (this.svg.firstChild) {
                     this.svg.removeChild(this.svg.firstChild);
                 }
 
                 this.initializeGrid();
 
-                // Create start points
                 const startPoints = [
                     { x: 0, y: 0 },
                     { x: this.width - 1, y: 0 },
@@ -235,7 +343,6 @@
                     { x: Math.floor(this.width / 2), y: Math.floor(this.height / 2) },
                 ];
 
-                // Add random start points
                 for (let i = 0; i < startPointCount; i++) {
                     startPoints.push({
                         x: Math.floor(Math.random() * this.width),
@@ -243,14 +350,12 @@
                     });
                 }
 
-                // Generate from each start point
                 startPoints.forEach((point) => {
                     const { x, y } = point;
                     if (!this.isEmpty(x, y)) return;
 
                     this.gridState[x][y] = true;
 
-                    // Generate lines in multiple directions
                     for (let i = 0; i < 4; i++) {
                         const angle = Math.random() * Math.PI * 2;
                         const endX = x + Math.round(Math.sin(angle)) * 2;
@@ -262,7 +367,6 @@
                     }
                 });
 
-                // Add more random branches from existing points
                 const additionalBranches = Math.floor(this.width * this.height * 0.01);
                 for (let i = 0; i < additionalBranches; i++) {
                     let startX, startY;
@@ -287,64 +391,47 @@
             }
         }
 
-        let generator = null;
-
-        window.generate = function(count) {
-            try {
-                generator = new CircuitGenerator('pcb-test', {
-                    gridSpacing: 8,
-                    lineWidth: 2,
-                    branchProbability: 0.75,
-                });
-                generator.generate(count);
-                document.getElementById('status').textContent = `✓ Generated pattern with ${count} start points`;
-            } catch (error) {
-                document.getElementById('status').textContent = `Error: ${error.message}`;
-                console.error(error);
-            }
+        let currentColors = {
+            line: '#EF5B0C',
+            pad: '#DC4E08'
         };
 
-        window.generateDense = function() {
-            try {
-                generator = new CircuitGenerator('pcb-test', {
-                    gridSpacing: 6,
-                    lineWidth: 1.5,
-                    branchProbability: 0.8,
-                });
-                generator.generate(15);
-                document.getElementById('status').textContent = '✓ Generated dense pattern (15 start points, 80% branch probability)';
-            } catch (error) {
-                document.getElementById('status').textContent = `Error: ${error.message}`;
-                console.error(error);
-            }
+        window.setColor = function(lineColor, padColor) {
+            currentColors.line = lineColor;
+            currentColors.pad = padColor;
+            
+            document.querySelectorAll('.color-option').forEach(el => {
+                el.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+            
+            const container = document.getElementById('pcb-container');
+            container.style.borderColor = lineColor;
+            container.style.boxShadow = `0 8px 32px ${lineColor}40`;
+            
+            generatePattern();
         };
 
-        window.generateSparse = function() {
-            try {
-                generator = new CircuitGenerator('pcb-test', {
-                    gridSpacing: 12,
-                    lineWidth: 3,
-                    branchProbability: 0.5,
-                });
-                generator.generate(3);
-                document.getElementById('status').textContent = '✓ Generated sparse pattern (3 start points, 50% branch probability)';
-            } catch (error) {
-                document.getElementById('status').textContent = `Error: ${error.message}`;
-                console.error(error);
-            }
+        window.generatePattern = function() {
+            const generator = new CircuitGenerator('pcb-canvas', {
+                gridSpacing: 15,
+                lineWidth: 3,
+                lineColor: currentColors.line,
+                padColor: currentColors.pad,
+                branchProbability: 0.7,
+            });
+            generator.generate(3);
         };
 
         window.clearCanvas = function() {
-            const svg = document.getElementById('pcb-test');
+            const svg = document.getElementById('pcb-canvas');
             while (svg.firstChild) {
                 svg.removeChild(svg.firstChild);
             }
-            document.getElementById('status').textContent = '✓ Canvas cleared';
         };
 
         // Generate initial pattern
-        console.log('Initializing PCB generator...');
-        generate(8);
+        generatePattern();
     </script>
 </body>
 </html>
